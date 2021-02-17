@@ -1,14 +1,17 @@
 import { OrbitControls, softShadows } from "@react-three/drei";
 import { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
-import Fox from "./Fox";
 import { Flex, Box } from "@react-three/flex";
+
+import Fox from "./Fox";
+import Chair from "./Chair";
 
 const Scene = () => {
   return (
     <>
+      <Suspense fallback={null}>{/* <Fox /> */}</Suspense>
       <Suspense fallback={null}>
-        <Fox />
+        <Chair />
       </Suspense>
     </>
   );
@@ -28,6 +31,8 @@ const World = () => {
         zIndex: 2,
       }}
     >
+      <ambientLight color="white" intensity={0.5} />
+
       <OrbitControls />
       {/* <ambientLight color="white" intensity={0.7} />
       <spotLight intensity={0.2} position={[70, 70, 70]} /> */}
