@@ -19,12 +19,13 @@ const Fox = ({ page }) => {
         viewport.width * 0.0025,
         viewport.width * 0.0025,
       ]}
-      rotation={[0, -Math.PI / 2, 0]}
-      position={[viewport.width / 4.2, -viewport.height / 3, 0]}
+      rotation={[0, -Math.PI / 5, 0]}
+      position={[0, -viewport.height / 3, 0]}
     >
       <group ref={group} dispose={null}>
         <primitive object={nodes._rootJoint} />
         <skinnedMesh
+          material-color="grey"
           material={materials.fox_material}
           geometry={nodes.fox.geometry}
           skeleton={nodes.fox.skeleton}

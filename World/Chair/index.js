@@ -8,9 +8,7 @@ const Chair = () => {
   const { nodes, materials } = useGLTF("/models/chair.gltf");
   console.log(nodes);
   return (
-    <group ref={group} dispose={null} position={[0, -1, 0]}>
-      <directionalLight intensity={5} position={[0, 20, 0]} />
-      <ambientLight intensity={5} position={[0, 20, 0]} />
+    <group ref={group} dispose={null} position={[0, -1, 3]}>
       <mesh
         material-color="saucy"
         material={materials.chair}

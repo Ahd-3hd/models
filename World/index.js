@@ -9,9 +9,8 @@ import Chair from "./Chair";
 const Scene = () => {
   return (
     <>
-      <Suspense fallback={null}>{/* <Fox /> */}</Suspense>
       <Suspense fallback={null}>
-        <Chair />
+        <Fox />
       </Suspense>
     </>
   );
@@ -32,7 +31,7 @@ const World = () => {
       }}
     >
       <ambientLight color="white" intensity={0.5} />
-
+      {/* <directionalLight intensity={0.1} position={[0, -50, 0]} /> */}
       <OrbitControls />
       {/* <ambientLight color="white" intensity={0.7} />
       <spotLight intensity={0.2} position={[70, 70, 70]} /> */}
