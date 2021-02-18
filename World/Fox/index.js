@@ -19,10 +19,13 @@ const Fox = ({ page }) => {
 
   useFrame(() => {
     if (page.page > 0) {
-      actions.Survey.fadeOut().stop();
+      // actions.Survey.fadeOut().stop();
       actions.Walk.fadeIn().play();
       if (group.current.rotation.y < 2) {
         group.current.rotation.y += 0.03;
+      }
+      if (group.current.position.y > -(size.height / aspect) * 0.1) {
+        group.current.position.y -= 2;
       }
       if (group.current.position.x > viewport.width * -0.17) {
         group.current.position.x -= 2.6;
