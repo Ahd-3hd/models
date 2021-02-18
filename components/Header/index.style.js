@@ -17,6 +17,8 @@ export const Wrapper = styled.header`
     margin-left: 5rem;
     max-width: fit-content;
   }
+  transform: translateY(${({ page }) => -page * 100}%);
+  transition: 2s ease-in-out;
 `;
 
 export const Container = styled.div`
@@ -73,4 +75,16 @@ export const Title = styled.h1`
 
 export const Paragraph = styled.p`
   color: #353535;
+`;
+
+export const ScrollButton = styled.button`
+  position: absolute;
+  padding: 0.7rem 1rem;
+  bottom: 0;
+  margin: 1rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.3rem;
+  color: #333333;
+  font-size: 1rem;
 `;

@@ -5,10 +5,12 @@ import Skills from "../components/Skills";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { Wrapper } from "../styles/Home.styles";
 import { useDrag, useScroll } from "react-use-gesture";
+import ScrollContext from "../context/scrollContext";
 
 const World = dynamic(import("../World"), { ssr: false });
 
 export default function Home() {
+  const [page, setPage] = useState(0);
   const bind = useScroll(
     (state) => {
       console.log(state.offset);
@@ -18,10 +20,12 @@ export default function Home() {
     }
   );
   return (
-    <Wrapper {...bind()}>
-      <World />
-      <Header />
-      <Skills />
-    </Wrapper>
+    <ScrollContext.Provider value={{ page: page, setPage: setPage }}>
+      <Wrapper {...bind()}>
+        <World />
+        <Header />
+        <Skills />
+      </Wrapper>
+    </ScrollContext.Provider>
   );
 }

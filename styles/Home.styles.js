@@ -6,6 +6,6 @@ export const Wrapper = styled.div`
   left: 0;
   width: 100%;
   /* min-height: 100vh; */
-  /* height: 100vh; */
-  /* overflow: hidden; */
+  height: 100vh;
+  overflow: hidden;
 `;
