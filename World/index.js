@@ -4,14 +4,14 @@ import {
   softShadows,
   OrthographicCamera,
 } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, memo } from "react";
 import { Canvas, useThree } from "react-three-fiber";
 import { Flex, Box } from "@react-three/flex";
 
 import Fox from "./Fox";
 import Chair from "./Chair";
 
-const Scene = () => {
+const Scene = ({ pageY }) => {
   const { size, viewport, aspect } = useThree();
   console.log(size);
   const viewSize = viewport.height;
@@ -28,13 +28,13 @@ const Scene = () => {
         far={1000}
       />
       <Suspense fallback={null}>
-        <Fox />
+        <Fox pageY={pageY} />
       </Suspense>
     </>
   );
 };
 
-const World = () => {
+const World = ({ pageY }) => {
   return (
     <Canvas
       colorManagement
@@ -42,7 +42,7 @@ const World = () => {
       style={{
         position: "fixed",
         width: "100%",
-        height: "100%",
+        height: "100vh",
         bottom: "0",
         right: "0",
         zIndex: 2,
@@ -50,12 +50,12 @@ const World = () => {
     >
       <ambientLight color="white" intensity={0.5} />
       {/* <directionalLight intensity={0.1} position={[0, -50, 0]} /> */}
-      <OrbitControls />
+      {/* <OrbitControls /> */}
       {/* <ambientLight color="white" intensity={0.7} />
       <spotLight intensity={0.2} position={[70, 70, 70]} /> */}
-      <Scene />
+      <Scene pageY={pageY} />
     </Canvas>
   );
 };
 
-export default World;
+export default memo(World);

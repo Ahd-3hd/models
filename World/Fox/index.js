@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { resizeFox } from "../../utils";
 
 useGLTF.preload("/models/Fox.gltf");
-const Fox = ({ page }) => {
+const Fox = () => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/models/Fox.gltf");
   const { actions } = useAnimations(animations, group);
@@ -12,6 +12,8 @@ const Fox = ({ page }) => {
   useEffect(() => {
     actions.Survey.play();
   }, []);
+
+  useFrame(() => {});
 
   return (
     <mesh

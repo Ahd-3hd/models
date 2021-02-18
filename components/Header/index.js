@@ -1,4 +1,5 @@
 import { Wrapper, Title, Paragraph, Container } from "./index.style";
+import { memo } from "react";
 const Header = () => {
   return (
     <Wrapper>
@@ -14,4 +15,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

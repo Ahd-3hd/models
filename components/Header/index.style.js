@@ -6,7 +6,7 @@ export const Wrapper = styled.header`
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   z-index: 999;
   padding-bottom: 25vh;
   @media (min-width: 900px) {
