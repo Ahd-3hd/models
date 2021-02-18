@@ -18,7 +18,7 @@ export const Wrapper = styled.header`
     max-width: fit-content;
   }
   transform: translateY(${({ page }) => -page * 100}%);
-  transition: 2s ease-in-out;
+  transition: transform 1s ease-in-out;
 `;
 
 export const Container = styled.div`

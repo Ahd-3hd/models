@@ -4,16 +4,16 @@ import {
   softShadows,
   OrthographicCamera,
 } from "@react-three/drei";
-import { Suspense, memo } from "react";
+import { Suspense, memo, useContext } from "react";
 import { Canvas, useThree } from "react-three-fiber";
 import { Flex, Box } from "@react-three/flex";
+import ScrollContext from "../context/scrollContext";
 
 import Fox from "./Fox";
 import Chair from "./Chair";
 
-const Scene = ({ pageY }) => {
+const Scene = ({ page }) => {
   const { size, viewport, aspect } = useThree();
-  console.log(size);
   const viewSize = viewport.height;
   const aspectRatio = viewport.width / viewport.height;
   return (
@@ -28,13 +28,14 @@ const Scene = ({ pageY }) => {
         far={1000}
       />
       <Suspense fallback={null}>
-        <Fox pageY={pageY} />
+        <Fox page={page} />
       </Suspense>
     </>
   );
 };
 
-const World = ({ pageY }) => {
+const World = () => {
+  const context = useContext(ScrollContext);
   return (
     <Canvas
       colorManagement
@@ -53,7 +54,7 @@ const World = ({ pageY }) => {
       {/* <OrbitControls /> */}
       {/* <ambientLight color="white" intensity={0.7} />
       <spotLight intensity={0.2} position={[70, 70, 70]} /> */}
-      <Scene pageY={pageY} />
+      <Scene page={context} />
     </Canvas>
   );
 };

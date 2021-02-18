@@ -11,17 +11,10 @@ const World = dynamic(import("../World"), { ssr: false });
 
 export default function Home() {
   const [page, setPage] = useState(0);
-  const bind = useScroll(
-    (state) => {
-      console.log(state.offset);
-    },
-    {
-      domTarget: typeof window !== "undefined" && window,
-    }
-  );
+
   return (
     <ScrollContext.Provider value={{ page: page, setPage: setPage }}>
-      <Wrapper {...bind()}>
+      <Wrapper>
         <World />
         <Header />
         <Skills />
