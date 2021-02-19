@@ -12,9 +12,12 @@ import ScrollContext from "../context/scrollContext";
 import Fox from "./Fox";
 import MyImg from "./MyImg";
 import Chair from "./Chair";
+import Particles from "./Particles";
 
 const Scene = ({ page }) => {
-  const { size, viewport, aspect } = useThree();
+  const { size, viewport, aspect, gl } = useThree();
+  // gl.autoClearColor = false;
+  // gl.setClearAlpha(0);
   const viewSize = viewport.width;
   return (
     <>
@@ -34,6 +37,9 @@ const Scene = ({ page }) => {
       <Suspense fallback={null}>
         <MyImg page={page} />
       </Suspense>
+      <Suspense fallback={null}>
+        <Particles page={page} />
+      </Suspense>
     </>
   );
 };
@@ -42,6 +48,9 @@ const World = () => {
   const context = useContext(ScrollContext);
   return (
     <Canvas
+      // gl={{
+      //   preserveDrawingBuffer: true,
+      // }}
       colorManagement
       shadowMap
       style={{
