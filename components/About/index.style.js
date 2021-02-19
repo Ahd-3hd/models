@@ -8,6 +8,11 @@ export const Wrapper = styled.div`
   transition: transform 1s ease-in-out;
   padding: 1rem;
   font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+
   > h3 {
     font-size: ${({ page }) => (page === 1 ? "1.6rem" : "0rem")};
     transition: 0.5s ease-in-out;
@@ -25,6 +30,9 @@ export const Wrapper = styled.div`
 
   @media (min-width: 700px) {
     padding: 3rem;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 15rem;
     > h3 {
       font-size: ${({ page }) => (page === 1 ? "2rem" : "0rem")};
     }
@@ -40,7 +48,7 @@ export const Title = styled.h3`
 `;
 
 export const Paragraph = styled.p`
-  text-align: right;
+  /* text-align: right; */
   line-height: 150%;
   transition: 0.3s ease-in;
   color: #555555;
@@ -50,4 +58,17 @@ export const Paragraph = styled.p`
     text-align: left;
     line-height: 200%;
   }
+`;
+
+export const ScrollButton = styled.button`
+  position: absolute;
+  padding: 0.7rem 1rem;
+  left: 0;
+  bottom: 0;
+  margin: 1rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.3rem;
+  color: #333333;
+  font-size: 1rem;
 `;

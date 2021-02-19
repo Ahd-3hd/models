@@ -10,25 +10,29 @@ import { Flex, Box } from "@react-three/flex";
 import ScrollContext from "../context/scrollContext";
 
 import Fox from "./Fox";
+import MyImg from "./MyImg";
 import Chair from "./Chair";
 
 const Scene = ({ page }) => {
   const { size, viewport, aspect } = useThree();
-  const viewSize = viewport.height;
-  const aspectRatio = viewport.width / viewport.height;
+  const viewSize = viewport.width;
   return (
     <>
       <OrthographicCamera
         makeDefault
-        left={(-aspectRatio * viewSize) / 2}
-        right={(aspectRatio * viewSize) / 2}
+        left={(-aspect * viewSize) / 2}
+        right={(aspect * viewSize) / 2}
         top={viewSize / 2}
         bottom={-viewSize / 2}
         near={-1000}
         far={1000}
+        zoom={1}
       />
       <Suspense fallback={null}>
         <Fox page={page} />
+      </Suspense>
+      <Suspense fallback={null}>
+        <MyImg page={page} />
       </Suspense>
     </>
   );
@@ -42,7 +46,7 @@ const World = () => {
       shadowMap
       style={{
         position: "fixed",
-        width: "100%",
+        width: "100vw",
         height: "100vh",
         bottom: "0",
         right: "0",

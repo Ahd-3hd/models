@@ -6,7 +6,6 @@ useGLTF.preload("/models/chair.gltf");
 const Chair = () => {
   const group = useRef();
   const { nodes, materials } = useGLTF("/models/chair.gltf");
-  console.log(nodes);
   return (
     <group ref={group} dispose={null} position={[0, -1, 3]}>
       <mesh

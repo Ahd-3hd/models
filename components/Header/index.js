@@ -12,14 +12,14 @@ const Header = () => {
   const { page, setPage } = useContext(ScrollContext);
   return (
     <Wrapper page={page}>
-      <Container>
+      {/* <Container>
         <Title>
           Hi! {"</>"}
           <br />
           My name is <span>Ahd</span>
         </Title>
         <Paragraph>I am a passionate Web Developer</Paragraph>
-      </Container>
+      </Container> */}
       <ScrollButton onClick={() => setPage(1)}>Scroll</ScrollButton>
     </Wrapper>
   );

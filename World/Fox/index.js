@@ -3,46 +3,47 @@ import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import { useEffect, useRef, useContext } from "react";
 import { resizeFox } from "../../utils";
 
-useGLTF.preload("/models/Fox.gltf");
-const Fox = ({ page }) => {
-  console.log(page);
+// finish canvas first. then depending on it layout the html;
 
+useGLTF.preload("/models/Fox.gltf");
+const Fox = ({ page, dimensions }) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/models/Fox.gltf");
   const { actions } = useAnimations(animations, group);
   const { size, viewport, aspect } = useThree();
   useEffect(() => {
     actions.Survey.play();
-
-    console.log(actions);
   }, []);
 
   useFrame(() => {
-    if (page.page > 0) {
-      // actions.Survey.fadeOut().stop();
+    if (page.page === 1) {
+      actions.Survey.fadeOut().stop();
       actions.Walk.fadeIn().play();
-      if (group.current.rotation.y < 2) {
+      if (group.current.rotation.y < 1.5) {
         group.current.rotation.y += 0.03;
       }
-      if (group.current.position.y > -(size.height / aspect) * 0.1) {
+      if (group.current.position.x > -viewport.width * 0.25 + aspect) {
+        group.current.position.x -= 4;
+      }
+      if (group.current.position.y > -viewport.height * 0.15 + aspect) {
         group.current.position.y -= 2;
       }
-      if (group.current.position.x > viewport.width * -0.17) {
-        group.current.position.x -= 2.6;
+    }
+
+    if (page.page === 2) {
+      actions.Walk.fadeOut().stop();
+      actions.Run.fadeIn().play();
+      if (group.current.position.x < 0) {
+        group.current.position.x += 2;
       }
     }
   });
 
   return (
     <mesh
-      scale={[
-        resizeFox(size.width),
-        resizeFox(size.width),
-        resizeFox(size.width),
-      ]}
-      // scale={[size.width * 0.002, size.width * 0.002, size.width * 0.002]}
+      scale={[aspect + 1, aspect + 1, aspect + 1]}
+      position={[viewport.width * 0.2 + aspect, 0, 0]}
       rotation={[0, -Math.PI / 5, 0]}
-      position={[size.width * 0.2, -(size.height / 2) * 0.2, 0]}
     >
       <group ref={group} dispose={null}>
         <primitive object={nodes._rootJoint} />
@@ -58,3 +59,19 @@ const Fox = ({ page }) => {
   );
 };
 export default Fox;
+
+// useFrame(() => {
+//   if (page.page > 0) {
+//     // actions.Survey.fadeOut().stop();
+//     actions.Walk.fadeIn().play();
+//     if (group.current.rotation.y < 2) {
+//       group.current.rotation.y += 0.03;
+//     }
+//     if (group.current.position.y > -(size.height / aspect) * 0.14) {
+//       group.current.position.y -= 2;
+//     }
+//     if (group.current.position.x > viewport.width * -0.17) {
+//       group.current.position.x -= 2.6;
+//     }
+//   }
+// });

@@ -2,6 +2,7 @@ import styles from "../styles/Home.module.css";
 import dynamic from "next/dynamic";
 import Header from "../components/Header";
 import About from "../components/About";
+import Skills from "../components/Skills";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { Wrapper } from "../styles/Home.styles";
 import { useDrag, useScroll } from "react-use-gesture";
@@ -18,6 +19,7 @@ export default function Home() {
         <World />
         <Header />
         <About />
+        <Skills />
       </Wrapper>
     </ScrollContext.Provider>
   );
