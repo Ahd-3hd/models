@@ -8,11 +8,9 @@ export const Wrapper = styled.header`
   flex-direction: column;
   height: 100vh;
   z-index: 999;
-  padding-bottom: 25vh;
   @media (min-width: 900px) {
     justify-content: center;
     align-items: flex-start;
-    padding-bottom: 0;
     font-size: 2rem;
     margin-left: 5rem;
     max-width: fit-content;
@@ -23,6 +21,7 @@ export const Wrapper = styled.header`
 
 export const Container = styled.div`
   padding: 0 0.5rem;
+  margin-bottom: 30vh;
 `;
 
 export const Title = styled.h1`

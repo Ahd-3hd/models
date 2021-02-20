@@ -4,7 +4,7 @@ import {
   softShadows,
   OrthographicCamera,
 } from "@react-three/drei";
-import { Suspense, memo, useContext } from "react";
+import { Suspense, memo, useContext, useEffect, useRef } from "react";
 import { Canvas, useThree } from "react-three-fiber";
 import { Flex, Box } from "@react-three/flex";
 import ScrollContext from "../context/scrollContext";
@@ -19,6 +19,7 @@ const Scene = ({ page }) => {
   // gl.autoClearColor = false;
   // gl.setClearAlpha(0);
   const viewSize = viewport.width;
+
   return (
     <>
       <OrthographicCamera
@@ -55,7 +56,7 @@ const World = () => {
       shadowMap
       style={{
         position: "fixed",
-        width: "100vw",
+        width: "100%",
         height: "100vh",
         bottom: "0",
         right: "0",
