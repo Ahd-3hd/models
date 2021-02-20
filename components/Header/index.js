@@ -4,8 +4,6 @@ import {
   Paragraph,
   Container,
   ScrollButton,
-  IconsContainer,
-  IconLink,
 } from "./index.style";
 import { memo } from "react";
 import { useContext } from "react";
@@ -30,7 +28,7 @@ const Header = () => {
           Web Developer
         </Paragraph>
         <Social />
-        <ScrollButton onClick={() => setPage(1)}>Scroll</ScrollButton>
+        <ScrollButton onClick={() => setPage(1)}>NEXT</ScrollButton>
       </Container>
     </Wrapper>
   );

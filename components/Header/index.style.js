@@ -83,12 +83,29 @@ export const Paragraph = styled.p`
 
 export const ScrollButton = styled.button`
   /* position: absolute; */
+  display: flex;
+  align-items: center;
   padding: 0.7rem 1rem;
   bottom: 0;
   margin: 1rem 0;
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 2px solid #333333;
   border-radius: 0.3rem;
   color: #333333;
   font-size: 1rem;
+  > svg {
+    fill: #333333;
+    stroke: 1px solid #333333;
+    height: 2rem;
+    width: 2rem;
+  }
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: 0.3s ease-in-out;
+  :hover {
+    background: #333333;
+    color: #fff;
+    transform: scale(1.04);
+  }
+  cursor: pointer;
 `;
