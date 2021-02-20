@@ -45,6 +45,12 @@ const Fox = ({ page, dimensions }) => {
       position={[viewport.width * 0.2 + aspect, 0, 0]}
       rotation={[0, -Math.PI / 5, 0]}
     >
+      <directionalLight
+        intensity={0.2}
+        position={[-50, 150, 150]}
+        color="white"
+      />
+      {/* <spotLight intensity={0.7} position={[70, 100, 70]} /> */}
       <group ref={group} dispose={null}>
         <primitive object={nodes._rootJoint} />
 
