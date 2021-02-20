@@ -18,20 +18,15 @@ const Scene = ({ page }) => {
   const { size, viewport, aspect, gl } = useThree();
   // gl.autoClearColor = false;
   // gl.setClearAlpha(0);
-  const viewSize = viewport.width;
+  const viewSize = size.width;
+
+  useEffect(() => {
+    console.log(aspect);
+    console.log(viewSize);
+  }, [aspect]);
 
   return (
     <>
-      <OrthographicCamera
-        makeDefault
-        left={(-aspect * viewSize) / 2}
-        right={(aspect * viewSize) / 2}
-        top={viewSize / 2}
-        bottom={-viewSize / 2}
-        near={-1000}
-        far={1000}
-        zoom={1}
-      />
       <Suspense fallback={null}>
         <Fox page={page} />
       </Suspense>
@@ -52,6 +47,8 @@ const World = () => {
       // gl={{
       //   preserveDrawingBuffer: true,
       // }}
+      orthographic={true}
+      // camera={{ fov: 0, near: 2000, far: -2000 }}
       colorManagement
       shadowMap
       style={{
@@ -63,6 +60,15 @@ const World = () => {
         zIndex: 2,
       }}
     >
+      <OrthographicCamera
+        makeDefault
+        // left={(-aspect * viewSize) / 2}
+        // right={(aspect * viewSize) / 2}
+        // top={viewSize / 2}
+        // bottom={-viewSize / 2}
+        near={-1000}
+        far={1000}
+      />
       <ambientLight color="white" intensity={0.5} />
       {/* <directionalLight intensity={0.1} position={[0, -50, 0]} /> */}
       {/* <OrbitControls /> */}
