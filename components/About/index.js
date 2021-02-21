@@ -6,7 +6,7 @@ const About = () => {
   const { page, setPage } = useContext(ScrollContext);
   return (
     <Wrapper page={page}>
-      {/* <Title>About Me</Title>
+      <Title>About Me</Title>
       <Paragraph>
         I am a well-qualified Full-Stack Developer equipped with a wide range of
         programming utilities, languages & frameworks.
@@ -14,7 +14,7 @@ const About = () => {
       <Paragraph>
         Enthusiastic, passionate & fully motivated by curiosity and the desire
         to stand out as software developer with a Can-do attitude.
-      </Paragraph> */}
+      </Paragraph>
       <ScrollButton onClick={() => setPage(2)}>Scroll</ScrollButton>
     </Wrapper>
   );

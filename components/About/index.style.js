@@ -52,11 +52,10 @@ export const Paragraph = styled.p`
   line-height: 150%;
   transition: 0.3s ease-in;
   color: #555555;
-  max-width: 50ch;
-
+  max-width: 45ch;
+  margin: 0.5rem 0;
   @media (min-width: 700px) {
     text-align: left;
-    line-height: 200%;
   }
 `;
 
