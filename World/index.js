@@ -13,6 +13,7 @@ import Fox from "./Fox";
 import MyImg from "./MyImg";
 import Chair from "./Chair";
 import Particles from "./Particles";
+import Bird from "./Bird";
 
 const Scene = ({ page }) => {
   const { size, viewport, aspect, gl } = useThree();
@@ -29,6 +30,9 @@ const Scene = ({ page }) => {
     <>
       <Suspense fallback={null}>
         <Fox page={page} />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Bird />
       </Suspense>
       <Suspense fallback={null}>
         <MyImg page={page} />
