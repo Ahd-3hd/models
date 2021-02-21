@@ -8,12 +8,17 @@ import { Suspense, memo, useContext, useEffect, useRef } from "react";
 import { Canvas, useThree } from "react-three-fiber";
 import { Flex, Box } from "@react-three/flex";
 import ScrollContext from "../context/scrollContext";
+import dynamic from "next/dynamic";
 
-import Fox from "./Fox";
-import MyImg from "./MyImg";
-import Chair from "./Chair";
-import Particles from "./Particles";
-import Bird from "./Bird";
+// import Fox from "./Fox";
+// import MyImg from "./MyImg";
+// import Particles from "./Particles";
+// import Bird from "./Bird";
+
+const Fox = dynamic(import("./Fox"));
+const MyImg = dynamic(import("./MyImg"));
+const Particles = dynamic(import("./Particles"));
+const Bird = dynamic(import("./Bird"));
 
 const Scene = ({ page }) => {
   const { size, viewport, aspect, gl } = useThree();
