@@ -18,7 +18,7 @@ import dynamic from "next/dynamic";
 const Fox = dynamic(import("./Fox"));
 const MyImg = dynamic(import("./MyImg"));
 const Particles = dynamic(import("./Particles"));
-const Bird = dynamic(import("./Bird"));
+// const Bird = dynamic(import("./Bird"));
 
 const Scene = ({ page }) => {
   const { size, viewport, aspect, gl } = useThree();
@@ -36,9 +36,7 @@ const Scene = ({ page }) => {
       <Suspense fallback={null}>
         <Fox page={page} />
       </Suspense>
-      <Suspense fallback={null}>
-        <Bird />
-      </Suspense>
+      <Suspense fallback={null}>{/* <Bird /> */}</Suspense>
       <Suspense fallback={null}>
         <MyImg page={page} />
       </Suspense>
