@@ -18,6 +18,7 @@ import dynamic from "next/dynamic";
 const Fox = dynamic(import("./Fox"));
 const MyImg = dynamic(import("./MyImg"));
 const Particles = dynamic(import("./Particles"));
+const Deer = dynamic(import("./Deer"));
 // const Bird = dynamic(import("./Bird"));
 
 const Scene = ({ page }) => {
@@ -36,7 +37,9 @@ const Scene = ({ page }) => {
       <Suspense fallback={null}>
         <Fox page={page} />
       </Suspense>
-      <Suspense fallback={null}>{/* <Bird /> */}</Suspense>
+      <Suspense fallback={null}>
+        <Deer page={page} />
+      </Suspense>
       <Suspense fallback={null}>
         <MyImg page={page} />
       </Suspense>
@@ -77,7 +80,7 @@ const World = () => {
         far={1000}
       />
       <ambientLight color="white" intensity={0.5} />
-      {/* <directionalLight intensity={0.1} position={[0, -50, 0]} /> */}
+      <directionalLight intensity={0.8} position={[-300, 600, 0]} />
       {/* <OrbitControls /> */}
       {/* <ambientLight color="white" intensity={0.7} />
       <spotLight intensity={0.2} position={[70, 70, 70]} /> */}
