@@ -10,8 +10,7 @@ export const Wrapper = styled.div`
   font-size: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: fit-content;
+  justify-content: center;
 `;
 
 export const ScrollButton = styled.button`
@@ -25,4 +24,11 @@ export const ScrollButton = styled.button`
   border-radius: 0.3rem;
   color: #333333;
   font-size: 1rem;
+`;
+
+export const Title = styled.h2`
+  color: #333333;
+  > span {
+    color: #1f6eb7;
+  }
 `;

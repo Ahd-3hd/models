@@ -18,7 +18,7 @@ import dynamic from "next/dynamic";
 const Fox = dynamic(import("./Fox"));
 const MyImg = dynamic(import("./MyImg"));
 const Particles = dynamic(import("./Particles"));
-const Deer = dynamic(import("./Deer"));
+// const Deer = dynamic(import("./Deer"));
 // const Bird = dynamic(import("./Bird"));
 
 const Scene = ({ page }) => {
@@ -37,9 +37,9 @@ const Scene = ({ page }) => {
       <Suspense fallback={null}>
         <Fox page={page} />
       </Suspense>
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <Deer page={page} />
-      </Suspense>
+      </Suspense> */}
       <Suspense fallback={null}>
         <MyImg page={page} />
       </Suspense>
