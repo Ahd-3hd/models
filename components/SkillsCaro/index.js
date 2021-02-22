@@ -6,7 +6,11 @@ import {
   Button,
   InnerContainer,
   SlideParagraph,
+  ButtonsContainer,
+  CirclesContainer,
+  Circle,
 } from "./index.style";
+import Caret from "../../svg/Caret.svg";
 
 const SkillsCaro = () => {
   const [slide, setSlide] = useState(0);
@@ -42,7 +46,32 @@ const SkillsCaro = () => {
           ))}
         </InnerContainer>
       </Container>
-      <Button onClick={() => setSlide((prev) => prev + 1)}>Button</Button>
+      <ButtonsContainer>
+        <Button
+          onClick={() => setSlide((prev) => (prev > 0 ? prev - 1 : prev))}
+          disabled={slide === 0}
+        >
+          <Caret />
+        </Button>
+        <CirclesContainer>
+          {slides.map((item, i) => (
+            <Circle
+              key={item.id}
+              active={item.id === slide}
+              onClick={() => setSlide(i)}
+            />
+          ))}
+        </CirclesContainer>
+        <Button
+          onClick={() =>
+            setSlide((prev) => (prev < slides.length - 1 ? prev + 1 : prev))
+          }
+          reverse
+          disabled={slide === slides.length - 1}
+        >
+          <Caret />
+        </Button>
+      </ButtonsContainer>
     </Wrapper>
   );
 };
