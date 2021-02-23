@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   margin-bottom: 25vh;
+  flex: 1;
 `;
 export const Container = styled.div`
   overflow: hidden;

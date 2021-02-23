@@ -27,10 +27,7 @@ const Scene = ({ page }) => {
   // gl.setClearAlpha(0);
   const viewSize = size.width;
 
-  useEffect(() => {
-    console.log(aspect);
-    console.log(viewSize);
-  }, [aspect]);
+  useEffect(() => {}, [aspect]);
 
   return (
     <>
@@ -38,7 +35,7 @@ const Scene = ({ page }) => {
         <Fox page={page} />
       </Suspense>
       {/* <Suspense fallback={null}>
-        <Deer page={page} />
+        <TextSphere page={page} />
       </Suspense> */}
       <Suspense fallback={null}>
         <MyImg page={page} />
