@@ -69,10 +69,11 @@ export const Scattered = styled.div`
   height: 100%;
   width: 100%;
 `;
+
 export const ScatteredSpan = styled.span`
   position: relative;
-  width: 100%;
   display: block;
+  /* width: fit-content; */
   /* top: ${({ num }) => Math.abs(Math.sin(Math.cos(num)))}px;
   left: ${({ num }) => Math.abs(Math.cos(num)) * 20}px; */
   font-size: 1.2rem;
@@ -84,7 +85,6 @@ export const ScatteredSpan = styled.span`
   word-wrap: break-word;
   transform: ${({ num }) =>
     `translate(${Math.abs(Math.sin(num + 1) * 60)}%,0)`};
-
   transition: 3s;
   color: #333333;
 `;
