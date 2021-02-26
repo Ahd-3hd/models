@@ -32,6 +32,7 @@ const Skills = () => {
     "CMS / headless CMS",
     "JWT Authentication",
     "MongoDB",
+    "Redux",
   ];
   const { page, setPage } = useContext(ScrollContext);
 

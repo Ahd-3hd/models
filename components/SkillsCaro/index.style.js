@@ -51,6 +51,9 @@ export const Button = styled.button`
 export const SlideParagraph = styled.p`
   color: #333333;
   line-height: 150%;
+  @media (min-width: 1024px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const CirclesContainer = styled.div`

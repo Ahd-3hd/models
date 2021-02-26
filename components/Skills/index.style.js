@@ -31,6 +31,9 @@ export const Title = styled.h2`
   > span {
     color: #1f6eb7;
   }
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Container = styled.div`
