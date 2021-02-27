@@ -52,9 +52,12 @@ export const ProjectButton = styled.a`
 export const ProjectButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 70%;
+  margin: auto;
   margin-top: 2rem;
   @media (min-width: 1024px) {
     justify-content: flex-start;
+    width: 100%;
   }
 `;
 
@@ -83,7 +86,8 @@ export const SliderCircle = styled.button`
   border-radius: 1rem;
   border: none;
   margin: 0 0.5rem;
-  background: #35353555;
+  background: ${({ active }) => (active ? "#1F6EB7" : "#35353599")};
+  transition: background 0.3s ease-in-out;
 `;
 
 export const ScrollButton = styled.button`
@@ -125,7 +129,8 @@ export const Slide = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 100%;
+  align-self: center;
+  width: 70%;
   /* max-width: 800px; */
   max-height: 50vh;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
