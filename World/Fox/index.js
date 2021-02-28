@@ -11,14 +11,24 @@ const Fox = ({ page, dimensions }) => {
   const { nodes, materials, animations } = useGLTF("/models/Fox.gltf");
   const { actions } = useAnimations(animations, group);
   const { size, viewport, aspect } = useThree();
-  useEffect(() => {
-    actions.Survey.play();
-  }, []);
+  // useEffect(() => {}, []);
 
   useFrame(() => {
+    if (page.page === 0) {
+      if (group.current.position.x < 0) {
+        group.current.position.x += 3;
+      }
+      if (group.current.position.y < 0) {
+        group.current.position.y += 1 + Math.sin(3);
+      }
+
+      if (group.current.rotation.y > 0) {
+        group.current.rotation.y -= 0.05;
+      }
+    }
     if (page.page === 1) {
-      actions.Survey.fadeOut().stop();
-      actions.Walk.fadeIn().play();
+      // actions.Survey.fadeOut().stop();
+      // actions.Walk.fadeIn().play();
       if (group.current.rotation.y < 1.5) {
         group.current.rotation.y += 0.03;
       }
@@ -31,11 +41,25 @@ const Fox = ({ page, dimensions }) => {
     }
 
     if (page.page === 2) {
-      actions.Walk.fadeOut().stop();
-      actions.Run.fadeIn().play();
+      // actions.Walk.fadeOut().stop();
+      // actions.Run.fadeIn().play();
       if (group.current.position.x < 0) {
         group.current.position.x += 2;
       }
+    }
+
+    if (page.page === 0) {
+      actions.Survey.fadeIn().play();
+      actions.Walk.fadeOut().stop();
+      actions.Run.fadeOut().stop();
+    } else if (page.page === 1) {
+      actions.Survey.fadeOut().stop();
+      actions.Walk.fadeIn().play();
+      actions.Run.fadeOut().stop();
+    } else if (page.page >= 2) {
+      actions.Survey.fadeOut().stop();
+      actions.Walk.fadeOut().stop();
+      actions.Run.fadeIn().play();
     }
   });
 
