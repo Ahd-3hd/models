@@ -6,7 +6,7 @@ import Projects from "../components/Projects";
 import { useState } from "react";
 import { Wrapper } from "../styles/Home.styles";
 import ScrollContext from "../context/scrollContext";
-import { useGesture, useWheel } from "react-use-gesture";
+import { useDrag, useGesture, useWheel } from "react-use-gesture";
 import { Lethargy } from "lethargy";
 
 const World = dynamic(import("../World"), { ssr: false });
@@ -33,9 +33,23 @@ export default function Home() {
     }
   });
 
+  const drag = useDrag((state) => {
+    if (state.dragging && scrollEnabled) {
+      if (state.movement[1] < 0 && page < 3) {
+        setPage((prev) => prev + 1);
+        setScrollEnabled(false);
+        setTimeout(() => setScrollEnabled(true), 1000);
+      } else if (state.movement[1] > 0 && page > 0) {
+        setPage((prev) => prev - 1);
+        setScrollEnabled(false);
+        setTimeout(() => setScrollEnabled(true), 1000);
+      }
+    }
+  });
+
   return (
     <ScrollContext.Provider value={{ page: page, setPage: setPage }}>
-      <Wrapper {...bind()}>
+      <Wrapper {...bind()} {...drag()}>
         <World />
         <Header />
         <About />
