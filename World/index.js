@@ -9,6 +9,7 @@ import { Canvas, useThree } from "react-three-fiber";
 import { Flex, Box } from "@react-three/flex";
 import ScrollContext from "../context/scrollContext";
 import dynamic from "next/dynamic";
+import { Shapes, Categories, Box as NewBox } from "./Home";
 
 // import Fox from "./Fox";
 // import MyImg from "./MyImg";
@@ -18,6 +19,7 @@ import dynamic from "next/dynamic";
 const Fox = dynamic(import("./Fox"));
 const MyImg = dynamic(import("./MyImg"));
 const Particles = dynamic(import("./Particles"));
+// const Effect = dynamic(import("./Effect"));
 // const Deer = dynamic(import("./Deer"));
 // const Bird = dynamic(import("./Bird"));
 
@@ -40,8 +42,13 @@ const Scene = ({ page }) => {
       <Suspense fallback={null}>
         <MyImg page={page} />
       </Suspense>
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <Particles page={page} />
+      </Suspense> */}
+      <Suspense fallback={null}>
+        <mesh scale={[1, 1, 1]} position={[0, 0, 0]}>
+          <Shapes />
+        </mesh>
       </Suspense>
     </>
   );

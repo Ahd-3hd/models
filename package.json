@@ -10,8 +10,10 @@
   "dependencies": {
     "@react-three/drei": "^3.8.2",
     "@react-three/flex": "^0.5.2",
+    "@react-three/postprocessing": "^1.5.2",
     "lethargy": "^1.0.9",
     "next": "10.0.7",
+    "postprocessing": "^6.20.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-three-fiber": "^5.3.18",
